@@ -57,6 +57,7 @@
       <DependentUpon>FrmProductos.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Negocio\ProductoBLL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmProductos.resx">
@@ -85,7 +86,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Negocio\" />
     <Folder Include="SQL\" />
     <Folder Include="Utilidades\" />
   </ItemGroup>
