@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\conexion.cs" />
+    <Compile Include="Data\ProductoDAO.cs" />
+    <Compile Include="Entities\Producto.cs" />
     <Compile Include="FrmProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,8 +85,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Entities\" />
     <Folder Include="Negocio\" />
     <Folder Include="SQL\" />
     <Folder Include="Utilidades\" />
