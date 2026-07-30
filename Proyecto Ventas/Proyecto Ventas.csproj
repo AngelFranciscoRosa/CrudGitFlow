@@ -86,8 +86,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Negocio\" />
     <Folder Include="SQL\" />
     <Folder Include="Utilidades\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQL\Script Create.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
