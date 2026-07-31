@@ -195,7 +195,24 @@ namespace Proyecto_Ventas
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            dgvProductos.DataSource = bll.Buscar(txtNombre.Text);
+
+            List<Producto> resultados = bll.Buscar(txtNombre.Text);
+
+            if (resultados.Count == 0)
+            {
+                MessageBox.Show(
+                    "No se encontraron productos.",
+                    "Búsqueda",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                CargarProductos();
+                txtNombre.Clear();
+                txtNombre.Focus();
+                return;
+            }
+
+            dgvProductos.DataSource = resultados;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
