@@ -41,7 +41,7 @@ namespace Proyecto_Ventas
             txtNombre.Focus();
         }
 
-
+        //logica boton guardar
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
@@ -110,6 +110,7 @@ namespace Proyecto_Ventas
             Limpiar();
         }
 
+        //logica boton editar
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
@@ -176,6 +177,7 @@ namespace Proyecto_Ventas
             Limpiar();
         }
 
+        //logica boton eliminar
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (idSeleccionado == 0)
@@ -200,7 +202,7 @@ namespace Proyecto_Ventas
                 Limpiar();
             }
         }
-
+        //logica boton buscar
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
@@ -223,17 +225,20 @@ namespace Proyecto_Ventas
             dgvProductos.DataSource = resultados;
         }
 
+        //logica boton limpiar
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
             CargarProductos();
         }
 
+
         private void FrmProductos_Load(object sender, EventArgs e)
         {
             CargarProductos();
         }
 
+        //logica datagridview
         private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
