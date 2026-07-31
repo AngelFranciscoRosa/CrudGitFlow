@@ -44,12 +44,54 @@ namespace Proyecto_Ventas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                MessageBox.Show("Debe ingresar el nombre del producto.");
+                txtNombre.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            {
+                MessageBox.Show("Debe ingresar la descripción del producto.");
+                txtDescripcion.Focus();
+                return;
+            }
+
+            if (!decimal.TryParse(txtPrecio.Text, out decimal precio))
+            {
+                MessageBox.Show("Ingrese un precio válido.");
+                txtPrecio.Focus();
+                return;
+            }
+
+            if (precio <= 0)
+            {
+                MessageBox.Show("El precio debe ser mayor que cero.");
+                txtPrecio.Focus();
+                return;
+            }
+
+            if (!int.TryParse(txtCantidad.Text, out int cantidad))
+            {
+                MessageBox.Show("Ingrese una cantidad válida.");
+                txtCantidad.Focus();
+                return;
+            }
+
+            if (cantidad < 0)
+            {
+                MessageBox.Show("La cantidad no puede ser negativa.");
+                txtCantidad.Focus();
+                return;
+            }
+
             Producto producto = new Producto();
 
             producto.Nombre = txtNombre.Text;
             producto.Descripcion = txtDescripcion.Text;
-            producto.Precio = decimal.Parse(txtPrecio.Text);
-            producto.Cantidad = int.Parse(txtCantidad.Text);
+            producto.Precio = precio;
+            producto.Cantidad = cantidad;
 
             bll.Insertar(producto);
 
@@ -62,6 +104,48 @@ namespace Proyecto_Ventas
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                MessageBox.Show("Debe ingresar el nombre del producto.");
+                txtNombre.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            {
+                MessageBox.Show("Debe ingresar la descripción del producto.");
+                txtDescripcion.Focus();
+                return;
+            }
+
+            if (!decimal.TryParse(txtPrecio.Text, out decimal precio))
+            {
+                MessageBox.Show("Ingrese un precio válido.");
+                txtPrecio.Focus();
+                return;
+            }
+
+            if (precio <= 0)
+            {
+                MessageBox.Show("El precio debe ser mayor que cero.");
+                txtPrecio.Focus();
+                return;
+            }
+
+            if (!int.TryParse(txtCantidad.Text, out int cantidad))
+            {
+                MessageBox.Show("Ingrese una cantidad válida.");
+                txtCantidad.Focus();
+                return;
+            }
+
+            if (cantidad < 0)
+            {
+                MessageBox.Show("La cantidad no puede ser negativa.");
+                txtCantidad.Focus();
+                return;
+            }
+
             if (idSeleccionado == 0)
             {
                 MessageBox.Show("Seleccione un producto.");
@@ -73,8 +157,8 @@ namespace Proyecto_Ventas
             producto.Id = idSeleccionado;
             producto.Nombre = txtNombre.Text;
             producto.Descripcion = txtDescripcion.Text;
-            producto.Precio = decimal.Parse(txtPrecio.Text);
-            producto.Cantidad = int.Parse(txtCantidad.Text);
+            producto.Precio = precio;
+            producto.Cantidad = cantidad;
 
             bll.Actualizar(producto);
 
