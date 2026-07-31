@@ -86,6 +86,14 @@ namespace Proyecto_Ventas
                 return;
             }
 
+            //validacion de precio
+            if (decimal.Round(precio, 2) != precio)
+            {
+                MessageBox.Show("El precio solo puede tener hasta dos decimales.");
+                txtPrecio.Focus();
+                return;
+            }
+
             Producto producto = new Producto();
 
             producto.Nombre = txtNombre.Text;
